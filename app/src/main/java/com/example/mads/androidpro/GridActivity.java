@@ -16,6 +16,7 @@ public class GridActivity extends AppCompatActivity {
     final int totalBtns = 9;
     final int btnsRow = 3;
     Button[] btn = new Button[9];
+    int turn = 0;
 
 
     @Override
@@ -37,6 +38,8 @@ public class GridActivity extends AppCompatActivity {
         tr1.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
 
 
+
+
         for (int i = 0; i < totalBtns ; i++) {
             btn[i] = new Button(this);
             if(i < btnsRow){
@@ -53,6 +56,9 @@ public class GridActivity extends AppCompatActivity {
 
         resetField();
 
+        if(btn[0].getText().equals("O")){
+            System.out.println("Test");
+        }
 
         TableLayout layout = (TableLayout) findViewById(R.id.tablelayout);
 
@@ -69,7 +75,13 @@ public class GridActivity extends AppCompatActivity {
     View.OnClickListener clickListen(final Button button){
         return new View.OnClickListener() {
             public void onClick(View v) {
-                button.setText("BLA");
+                turn++;
+                if(turn%2 == 0) {
+                    button.setText("X");
+                }
+                else{
+                    button.setText("O");
+                }
             }
         };
 
