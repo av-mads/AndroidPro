@@ -20,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         activities.add(0, "Buttons");
+        activities.add(1, "Grid");
 
-        for (int i = 1; i < 20; i++) {
+        for (int i = 2; i < 20; i++) {
             activities.add(i, "Empty Activity");
         }
 
@@ -32,16 +33,25 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(id == 0){
+                if (id == 0) {
                     goToScene(Buttons.class);
+                }
+                if (id == 1) {
+                    GoToGrid();
                 }
             }
         });
 
     }
 
+
     private void goToScene(Class<Buttons> c){
         Intent intent = new Intent(this, c);
+        startActivity(intent);
+    }
+
+    private void GoToGrid(){
+        Intent intent = new Intent(this, GridActivity.class);
         startActivity(intent);
     }
 }
