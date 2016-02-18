@@ -15,6 +15,9 @@ public class DataBase extends AppCompatActivity {
     EditText editName;
     Button addDataBtn;
     Button viewAll;
+    Button updateTable;
+    EditText idInput;
+    Button deleteData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +26,13 @@ public class DataBase extends AppCompatActivity {
         myDB = new DatabaseHelper(this);
         editName = (EditText) findViewById(R.id.input_name);
         viewAll = (Button) findViewById(R.id.button_view);
+        updateTable = (Button) findViewById(R.id.button_update);
         addDataBtn = (Button) findViewById(R.id.button_add);
+        idInput = (EditText) findViewById(R.id.input_id);
+        deleteData = (Button) findViewById(R.id.button_delete);
         addData();
         viewAll();
+        updateData();
     }
 
     public void addData(){
@@ -61,6 +68,21 @@ public class DataBase extends AppCompatActivity {
                 }
 
                 showMessage("Data", buffer.toString());
+            }
+        });
+    }
+
+    public void updateData(){
+        updateTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isUpdated = myDB.updateData(idInput.getText().toString(), editName.getText().toString());
+                if(isUpdated == true){
+                    Toast.makeText(DataBase.this, "Data Updated", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(DataBase.this, "Data not updated", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
