@@ -72,15 +72,15 @@ public class GridActivity extends AppCompatActivity {
 
     }
 
-    View.OnClickListener clickListen(final Button button){
+    View.OnClickListener clickListen(final Button button, final int id){
         return new View.OnClickListener() {
             public void onClick(View v) {
                 turn++;
                 if(turn%2 == 0) {
-                    button.setText("X");
+                    button.setText("X" + id);
                 }
                 else{
-                    button.setText("O");
+                    button.setText("O" + id);
                 }
             }
         };
@@ -91,7 +91,7 @@ public class GridActivity extends AppCompatActivity {
         for (int i = 0; i < totalBtns; i++) {
             btn[i].setMinimumWidth(200);
             btn[i].setText("Button " + (i+1));
-            btn[i].setOnClickListener(clickListen(btn[i]));
+            btn[i].setOnClickListener(clickListen(btn[i], i));
         }
     }
 }

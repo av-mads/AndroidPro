@@ -18,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseHelper db = new DatabaseHelper(this);
 
         activities.add(0, "Buttons");
         activities.add(1, "Grid");
+        activities.add(2, "Database");
 
-        for (int i = 2; i < 20; i++) {
+        for (int i = 3; i < 20; i++) {
             activities.add(i, "Empty Activity");
         }
 
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 if (id == 1) {
                     GoToGrid();
                 }
+                if(id == 2){
+                   GoToDatabase();
+                }
             }
         });
 
@@ -52,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void GoToGrid(){
         Intent intent = new Intent(this, GridActivity.class);
+        startActivity(intent);
+    }
+    private void GoToDatabase(){
+        Intent intent = new Intent(this, DataBase.class);
         startActivity(intent);
     }
 }
