@@ -13,7 +13,7 @@ import android.widget.TableRow;
 import java.util.ArrayList;
 
 public class GridActivity extends AppCompatActivity {
-    final int totalBtns = 9;
+    final int totalBtns = 12;
     final int btnsRow = 3;
     Button[] btn = new Button[9];
     int turn = 0;
@@ -37,7 +37,12 @@ public class GridActivity extends AppCompatActivity {
         TableRow tr2 = new TableRow(this);
         tr1.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
 
+        TableRow tr3 = new TableRow(this);
+        tr3.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
 
+        ButtonClass b = new ButtonClass(this);
+
+        tr3.addView(b);
 
 
         for (int i = 0; i < totalBtns ; i++) {
