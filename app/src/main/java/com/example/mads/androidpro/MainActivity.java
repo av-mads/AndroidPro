@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
         activities.add(0, "Buttons");
         activities.add(1, "Grid");
         activities.add(2, "Database");
+        activities.add(3, "TicTacToe");
 
-        for (int i = 3; i < 20; i++) {
+        for (int i = 4; i < 20; i++) {
             activities.add(i, "Empty Activity");
         }
 
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 if(id == 2){
                    GoToDatabase();
                 }
+                if(id == 3){
+                    GoToTicTac();
+                }
             }
         });
 
@@ -61,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void GoToDatabase(){
         Intent intent = new Intent(this, DataBase.class);
+        startActivity(intent);
+    }
+
+    private void GoToTicTac(){
+        Intent intent = new Intent(this, TicTac.class);
         startActivity(intent);
     }
 }
