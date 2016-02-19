@@ -13,7 +13,8 @@ import android.widget.TableRow;
 import java.util.ArrayList;
 
 public class GridActivity extends AppCompatActivity {
-    final int totalBtns = 12;
+    final int totalBtns = 9;
+    int count = 0;
     final int btnsRow = 3;
     Button[] btn = new Button[9];
     int turn = 0;
@@ -40,10 +41,22 @@ public class GridActivity extends AppCompatActivity {
         TableRow tr3 = new TableRow(this);
         tr3.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
 
-        ButtonClass b = new ButtonClass(this);
+        final ButtonClass b = new ButtonClass(this);
 
         tr3.addView(b);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (count == 0) {
+                    b.textPreference(10, "test");
+                }
+                if (count >= 1) {
+                    b.textPreference("Test " + count);
+                }
+                count++;
+            }
 
+        });
 
         for (int i = 0; i < totalBtns ; i++) {
             btn[i] = new Button(this);
@@ -70,6 +83,7 @@ public class GridActivity extends AppCompatActivity {
         layout.addView(tr, new TableLayout.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
         layout.addView(tr1, new TableLayout.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
         layout.addView(tr2, new TableLayout.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
+        layout.addView(tr3, new TableLayout.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, AbsListView.LayoutParams.WRAP_CONTENT));
 
 
 //        ArrayAdapter<Button> adapt = new ArrayAdapter<Button>(this, R.layout.grid_layout, R.id.button, btns);

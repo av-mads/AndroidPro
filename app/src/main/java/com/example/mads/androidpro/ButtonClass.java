@@ -12,7 +12,17 @@ public class ButtonClass extends Button {
     public ButtonClass(Context context) {
         super(context);
         setText("Personal Button");
+        setTextSize(5);
         setWidth(100);
         setHeight(100);
+    }
+
+    public void textPreference(int size, String text){
+        setText(text);
+        setTextSize(size);
+    }
+
+    public void textPreference(String text){
+        setText(text);
     }
 }
