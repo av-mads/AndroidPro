@@ -9,10 +9,12 @@ import android.widget.Button;
 public class TicTacButton extends Button{
     int state = 0;
 
+
     public TicTacButton(Context context, int state){
         super(context);
         this.state = state;
-        setTextSize(10);
+
+        setTextSize(15);
         setWidth(100);
         setHeight(100);
 
@@ -25,5 +27,14 @@ public class TicTacButton extends Button{
         if(state == 2){
             setText("O");
         }
+    }
+
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }
