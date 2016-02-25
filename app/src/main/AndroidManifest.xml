@@ -18,7 +18,8 @@
         <activity android:name=".Buttons" />
         <activity android:name=".GridActivity" />
         <activity android:name=".DataBase" />
-        <activity android:name=".TicTac"></activity>
+        <activity android:name=".TicTac" />
+        <activity android:name=".MemoryGame"></activity>
     </application>
 
 </manifest>

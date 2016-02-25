@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         activities.add(1, "Grid");
         activities.add(2, "Database");
         activities.add(3, "TicTacToe");
+        activities.add(4, "Memory Game");
 
-        for (int i = 4; i < 20; i++) {
+        for (int i = 5; i < 20; i++) {
             activities.add(i, "Empty Activity");
         }
 
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(id == 3){
                     GoToTicTac();
+                }
+                if(id == 4){
+                    GoToMemory();
                 }
             }
         });
@@ -70,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void GoToTicTac(){
         Intent intent = new Intent(this, TicTac.class);
+        startActivity(intent);
+    }
+
+    private void GoToMemory(){
+        Intent intent = new Intent(this, MemoryGame.class);
         startActivity(intent);
     }
 }
